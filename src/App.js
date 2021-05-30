@@ -1,6 +1,8 @@
 import {useState, useEffect } from 'react';
-
+import { createItem, fetchListItems, updateList } from './services/shoppingList-service'
 import './App.css';
+
+import Header from './components/Header/Header'
 
 export default function App() {
   const [shoppingListState, setShoppingListState] = useState({
@@ -34,7 +36,7 @@ export default function App() {
   async function handleSubmit(evt) {
     evt.preventDefault();
 
-    if(state.editMode){
+    if(shoppingListState.editMode){
       try {
         const listItems = await updateList(shoppingListState.newListItem)
         setShoppingListState(prevState => ({
@@ -55,7 +57,7 @@ export default function App() {
         const listItem = await createItem(shoppingListState.newListItem);
 
         setShoppingListState({
-          listItems: [...state.listItems, listItem],
+          listItems: [...shoppingListState.listItems, listItem],
           newListItem: {
             item: '',
             quantity: '1',
@@ -67,6 +69,25 @@ export default function App() {
       }
     }
   }
+
+
+  return (
+    <>
+    < Header  />
+    {/* <section>
+      {userState.user ? state.listItems.map((list, idx) =>
+      <article key={idx}> 
+      <div>{list.item}</div>
+      <div>{list.quantity}</div>
+      <div>{list.unit}</div>
+      </article>):
+        }
+    </section> */}
+    </>
+  )
+
+
+
 
 }
 
