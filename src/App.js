@@ -70,21 +70,77 @@ export default function App() {
     }
   }
 
+  function handleChange(evt) {
+    setShoppingListState(prevState => ({
+      ...prevState,
+      newListItem : {
+        ...prevState.newListItem,
+        [evt.target.name]: evt.target.value
+      }
+    }))
+  }
+
+  function handleEdit(id) {
+    const itemToEdit = shoppingListState.listItems.find(item => item._id === id);
+    setShoppingListState(prevState => ({
+      ...prevState,
+      newListItem: itemToEdit,
+      editMode: true
+    }));
+  }
+
 
   return (
     <>
     < Header  />
-    {/* <section>
-      {userState.user ? state.listItems.map((list, idx) =>
-      <article key={idx}> 
-      <div>{list.item}</div>
-      <div>{list.quantity}</div>
-      <div>{list.unit}</div>
-      </article>):
+    <section>
+      {shoppingListState.listItems.map((list, idx) => (
+        <article key={idx}>
+          <div>{list.item}</div> 
+          <div>{list.quantity}</div>
+          <div>{list.unit}</div>
+          <div 
+          className="controls"
+          onClick={() => handleEdit(list._id)}
+          >{'✏️'}</div>
+            {/* <div 
+          className="controls"
+          onClick={() => handleDelete(list._id)}
+          >{'🚮'}</div> */}
+        </article>
+      )) 
         }
-    </section> */}
+      <hr />
+      <form onSubmit={handleSubmit}>
+        <label>
+          <span>ITEM</span>
+          <input name="item" value={shoppingListState.newListItem.item} onChange={handleChange}/>
+        </label>
+        <label>
+          <span>QUANTITY</span>
+          <select name="quantity" value={shoppingListState.newListItem.quantity} onChange={handleChange}>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </label>
+        <label>
+          <span>UNIT</span>
+          <select name="unit" value={shoppingListState.newListItem.unit} onChange={handleChange}>
+            <option value="Box">Box</option>
+            <option value="Bag">Bag</option>
+            <option value="Pounds">Pounds</option>
+            <option value="Ounces">Ounces</option>
+            <option value="Number">Number</option>
+          </select>
+        </label>
+        <button>{shoppingListState.editMode ? 'EDIT ITEM' : 'ADD ITEM'} </button>
+      </form>
+    </section>
     </>
-  )
+  );
 
 
 
