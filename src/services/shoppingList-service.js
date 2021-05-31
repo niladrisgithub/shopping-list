@@ -18,7 +18,7 @@ function createItem(data) {
     return fetch(BASE_URL, {
         method: 'POST',
         headers: {
-            'Content-type' : 'Application/json'
+            'Content-type': 'Application/json'
         },
         body: JSON.stringify({...data})
     }).then(res => res.json());

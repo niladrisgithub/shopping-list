@@ -6,11 +6,11 @@ import Header from './components/Header/Header'
 
 export default function App() {
   const [shoppingListState, setShoppingListState] = useState({
-    listItems: [{item: 'Coffee', quantity: 1, unit: 'bag'}],
+    listItems: [{item: 'Coffee', quantity: 2, unit: 'bag'}],
     newListItem: {
       item: '',
-      quantity: ' ',
-      unit: ' '
+      quantity: '1',
+      unit: 'Box'
     },
     editMode: false
   });
@@ -45,8 +45,8 @@ export default function App() {
           editMode: false,
           newListItem: {
             item: '',
-            quantity: ' ',
-            unit: ' '
+            quantity: '1',
+            unit: 'Box'
           }
         }));
       } catch (error) {
@@ -60,8 +60,8 @@ export default function App() {
           listItems: [...shoppingListState.listItems, listItem],
           newListItem: {
             item: '',
-            quantity: ' ',
-            unit: ' '
+            quantity: '1',
+            unit: 'Box'
           }
         });
       } catch (error){
@@ -132,7 +132,7 @@ export default function App() {
         <label>
           <span>QUANTITY</span>
           <select name="quantity" value={shoppingListState.newListItem.quantity} onChange={handleChange}>
-            <option value=" " disabled selected>Choose the Quantity</option>
+            <option value=" " disabled>Choose the Quantity</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -143,7 +143,7 @@ export default function App() {
         <label>
           <span>UNIT</span>
           <select name="unit" value={shoppingListState.newListItem.unit} onChange={handleChange}>
-            <option value=" " disabled selected>Choose the Unit</option>
+            <option value=" " disabled>Choose the Unit</option>
             <option value="Box">Box</option>
             <option value="Bag">Bag</option>
             <option value="Pounds">Pounds</option>
@@ -153,6 +153,7 @@ export default function App() {
         </label>
         <button>{shoppingListState.editMode ? 'EDIT ITEM' : 'ADD ITEM'} </button>
       </form>
+      <br />
     </section>
     </>
   );
