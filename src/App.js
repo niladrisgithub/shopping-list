@@ -9,8 +9,8 @@ export default function App() {
     listItems: [{item: 'Coffee', quantity: 1, unit: 'bag'}],
     newListItem: {
       item: '',
-      quantity: '1',
-      unit: ''
+      quantity: ' ',
+      unit: ' '
     },
     editMode: false
   });
@@ -45,8 +45,8 @@ export default function App() {
           editMode: false,
           newListItem: {
             item: '',
-            quantity: '1',
-            unit: ''
+            quantity: ' ',
+            unit: ' '
           }
         }));
       } catch (error) {
@@ -60,8 +60,8 @@ export default function App() {
           listItems: [...shoppingListState.listItems, listItem],
           newListItem: {
             item: '',
-            quantity: '1',
-            unit: ''
+            quantity: ' ',
+            unit: ' '
           }
         });
       } catch (error){
@@ -119,6 +119,7 @@ export default function App() {
         <label>
           <span>QUANTITY</span>
           <select name="quantity" value={shoppingListState.newListItem.quantity} onChange={handleChange}>
+            <option value=" " disabled selected>Choose the Quantity</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -129,6 +130,7 @@ export default function App() {
         <label>
           <span>UNIT</span>
           <select name="unit" value={shoppingListState.newListItem.unit} onChange={handleChange}>
+            <option value=" " disabled selected>Choose the Unit</option>
             <option value="Box">Box</option>
             <option value="Bag">Bag</option>
             <option value="Pounds">Pounds</option>
