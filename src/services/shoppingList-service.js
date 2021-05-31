@@ -24,11 +24,16 @@ function createItem(data) {
     }).then(res => res.json());
 }
 
+function deleteListItem(listItemId) {
+    return fetch (`${BASE_URL}/${listItemId}`, {
+        method: 'DELETE'
+    }).then(res => res.json());
+}
 
 
 export{
     fetchListItems,
     updateList,
     createItem,
-    
+    deleteListItem,
 }

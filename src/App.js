@@ -1,5 +1,5 @@
 import {useState, useEffect } from 'react';
-import { createItem, fetchListItems, updateList } from './services/shoppingList-service'
+import { createItem, fetchListItems, updateList, deleteListItem } from './services/shoppingList-service'
 import './App.css';
 
 import Header from './components/Header/Header'
@@ -89,6 +89,19 @@ export default function App() {
     }));
   }
 
+  async function handleDelete(id) {
+    try{
+      const listItems = await deleteListItem(id);
+      setShoppingListState(prevState => ({
+        ...prevState,
+        listItems
+      })
+       
+      )
+  } catch (error) {
+    console.log(error)
+  }
+  }
 
   return (
     <>
@@ -103,10 +116,10 @@ export default function App() {
           className="controls"
           onClick={() => handleEdit(list._id)}
           >{'✏️'}</div>
-            {/* <div 
+            <div 
           className="controls"
           onClick={() => handleDelete(list._id)}
-          >{'🚮'}</div> */}
+          >{'🚮'}</div>
         </article>
       )) 
         }
@@ -145,7 +158,4 @@ export default function App() {
   );
 
 
-
-
 }
-
