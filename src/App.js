@@ -24,6 +24,8 @@ export default function App() {
   useEffect(function() {
     async function getAppData() {
 
+      if(!userState.user) return;
+      
       const listItems = await fetchListItems(userState.user.uid);
 
       setShoppingListState(prevState => ({

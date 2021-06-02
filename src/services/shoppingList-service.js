@@ -1,11 +1,11 @@
 const BASE_URL = 'http://localhost:3001/api/shoppingList'
 
-function fetchListItems() {
-    return fetch(`${BASE_URL}`).then(res => res.json());
+function fetchListItems(uid) {
+    return fetch(`${BASE_URL}?uid=${uid}`).then(res => res.json());
 }
 
-function updateList({item, quantity, unit, _id}) {
-    return fetch (`${BASE_URL}/${_id}`, {
+function updateList({item, quantity, unit, _id, uid}) {
+    return fetch (`${BASE_URL}/${_id}?uid=${uid}`, {
         method: 'PUT',
         headers: {
             'Content-type' : 'Application/json'
@@ -14,18 +14,18 @@ function updateList({item, quantity, unit, _id}) {
     }).then(res => res.json());
 }
 
-function createItem(data) {
+function createItem(data, uid) {
     return fetch(BASE_URL, {
         method: 'POST',
         headers: {
             'Content-type': 'Application/json'
         },
-        body: JSON.stringify({...data})
+        body: JSON.stringify({...data, uid})
     }).then(res => res.json());
 }
 
-function deleteListItem(listItemId) {
-    return fetch (`${BASE_URL}/${listItemId}`, {
+function deleteListItem(listItemId, uid) {
+    return fetch (`${BASE_URL}/${listItemId}?uid=${uid}`, {
         method: 'DELETE'
     }).then(res => res.json());
 }
