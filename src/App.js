@@ -6,7 +6,7 @@ import Header from './components/Header/Header'
 
 export default function App() {
   const [shoppingListState, setShoppingListState] = useState({
-    listItems: [{item: 'Coffee', quantity: 2, unit: 'bag'}],
+    listItems: [{item: 'Coffee', quantity: 2, unit: 'Bag'}, {item: 'Bananas', quantity: 1, unit: 'Pounds'}],
     newListItem: {
       item: '',
       quantity: '1',
