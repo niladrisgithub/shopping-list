@@ -1,4 +1,5 @@
-import {useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { auth } from './services/firebase';
 import { createItem, fetchListItems, updateList, deleteListItem } from './services/shoppingList-service'
 import './App.css';
 
@@ -15,10 +16,15 @@ export default function App() {
     editMode: false
   });
 
+  const [ userState, setUserState ] = useState({
+    user: null,
+  })
+
+
   useEffect(function() {
     async function getAppData() {
 
-      const listItems = await fetchListItems();
+      const listItems = await fetchListItems(userState.user.uid);
 
       setShoppingListState(prevState => ({
         ...prevState,
@@ -27,18 +33,21 @@ export default function App() {
     }
     getAppData();
 
-    return function(){
+    const unsubscribe = auth.onAuthStateChanged(user => setUserState({ user }));
 
+    return function(){
+      unsubscribe();
     }
-  }, []);
+  }, [userState.user]);
 
 
   async function handleSubmit(evt) {
+    if(!userState.user) return;
     evt.preventDefault();
 
     if(shoppingListState.editMode){
       try {
-        const listItems = await updateList(shoppingListState.newListItem)
+        const listItems = await updateList(shoppingListState.newListItem, userState.user.uid)
         setShoppingListState(prevState => ({
           ...prevState,
           listItems,
@@ -54,7 +63,7 @@ export default function App() {
       }
     } else {
       try{
-        const listItem = await createItem(shoppingListState.newListItem);
+        const listItem = await createItem(shoppingListState.newListItem, userState.user.uid);
 
         setShoppingListState({
           listItems: [...shoppingListState.listItems, listItem],
@@ -81,6 +90,7 @@ export default function App() {
   }
 
   function handleEdit(id) {
+    if(!userState.user) return;
     const itemToEdit = shoppingListState.listItems.find(item => item._id === id);
     setShoppingListState(prevState => ({
       ...prevState,
@@ -90,14 +100,13 @@ export default function App() {
   }
 
   async function handleDelete(id) {
+    if(!userState.user) return;
     try{
-      const listItems = await deleteListItem(id);
+      const listItems = await deleteListItem(id, userState.user.uid);
       setShoppingListState(prevState => ({
         ...prevState,
         listItems
-      })
-       
-      )
+      }));
   } catch (error) {
     console.log(error)
   }
@@ -105,9 +114,9 @@ export default function App() {
 
   return (
     <>
-    < Header  />
+    < Header user={userState.user} />
     <section>
-      {shoppingListState.listItems.map((list, idx) => (
+      {userState.user ? shoppingListState.listItems.map((list, idx) => (
         <article key={idx}>
           <div>{list.item}</div> 
           <div>{list.quantity}</div>
@@ -121,7 +130,8 @@ export default function App() {
           onClick={() => handleDelete(list._id)}
           >{'🚮'}</div>
         </article>
-      )) 
+      )) :
+      <article>No ShoppingList to Show - Login to get Started</article>
         }
       <hr />
       <form onSubmit={handleSubmit}>
@@ -157,6 +167,4 @@ export default function App() {
     </section>
     </>
   );
-
-
 }
