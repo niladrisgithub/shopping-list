@@ -11,6 +11,11 @@ function Header(props) {
                         props.user ?
                         <>
                         <li>Welcome, {props.user.displayName}</li>
+                        <li>
+                            <img src={props.user.photoURL} 
+                            alt={props.user.displayName} 
+                            style={{height: '2.5rem', borderRadius: '42%'}}/>
+                        </li>
                         <li 
                         className={styles.navLink}
                         onClick={logout}>
