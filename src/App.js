@@ -28,8 +28,8 @@ export default function App() {
       
       const listItems = await fetchListItems(userState.user.uid);
 
-      setShoppingListState(prevState => ({
-        ...prevState,
+      setShoppingListState(prevShoppingListState => ({
+        ...prevShoppingListState,
         listItems
       }));
     }
@@ -50,8 +50,8 @@ export default function App() {
     if(shoppingListState.editMode){
       try {
         const listItems = await updateList(shoppingListState.newListItem, userState.user.uid)
-        setShoppingListState(prevState => ({
-          ...prevState,
+        setShoppingListState(prevShoppingListState => ({
+          ...prevShoppingListState,
           listItems,
           editMode: false,
           newListItem: {
@@ -82,10 +82,10 @@ export default function App() {
   }
 
   function handleChange(evt) {
-    setShoppingListState(prevState => ({
-      ...prevState,
+    setShoppingListState(prevShoppingListState => ({
+      ...prevShoppingListState,
       newListItem : {
-        ...prevState.newListItem,
+        ...prevShoppingListState.newListItem,
         [evt.target.name]: evt.target.value
       }
     }))
@@ -94,8 +94,8 @@ export default function App() {
   function handleEdit(id) {
     if(!userState.user) return;
     const itemToEdit = shoppingListState.listItems.find(item => item._id === id);
-    setShoppingListState(prevState => ({
-      ...prevState,
+    setShoppingListState(prevShoppingListState => ({
+      ...prevShoppingListState,
       newListItem: itemToEdit,
       editMode: true
     }));
@@ -105,15 +105,15 @@ export default function App() {
     if(!userState.user) return;
     try{
       const listItems = await deleteListItem(id, userState.user.uid);
-      setShoppingListState(prevState => ({
-        ...prevState,
+      setShoppingListState(prevShoppingListState => ({
+        ...prevShoppingListState,
         listItems
       }));
   } catch (error) {
     console.log(error)
   }
   }
-
+  
   return (
     <>
     < Header user={userState.user} />
@@ -158,9 +158,10 @@ export default function App() {
             <option value=" " disabled>Choose the Unit</option>
             <option value="Box">Box</option>
             <option value="Bag">Bag</option>
-            <option value="Pounds">Pounds</option>
-            <option value="Ounces">Ounces</option>
+            <option value="Jar">Jar</option>
             <option value="Number">Number</option>
+            <option value="Ounces">Ounces</option>
+            <option value="Pounds">Pounds</option>
           </select>
         </label>
         <button>{shoppingListState.editMode ? 'EDIT ITEM' : 'ADD ITEM'} </button>

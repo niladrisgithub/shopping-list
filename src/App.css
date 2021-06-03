@@ -9,13 +9,16 @@ section {
   justify-items: center;
   align-items: center;
   background-color: rgb(117, 200, 255);
+  height: 100%;
 }
 
 section > article {
   display: flex;
+  flex-grow: 1;
   justify-content: space-between;
-  min-width: 17.25rem;
-  margin: 0.1rem;
+  min-width: 18.25rem;
+  margin: 0.4rem;
+  background-color: dodgerblue;
 }
 
 article > div {
@@ -42,7 +45,7 @@ select {
   width: 100%;
   font-size: 1rem;
   padding: 0.4rem;
-  border: 1.5px solid dodgerblue;
+  border: 2px solid dodgerblue;
   border-radius: 0;
 
 }
@@ -57,5 +60,10 @@ button {
 
 button:hover {
   color: white;
-  background-color: lightgray;
+  background-color: rgb(0, 46, 92);
+}
+
+.controls {
+  cursor: pointer;
+  background-color: rgb(65, 143, 196);
 }
