@@ -1,4 +1,5 @@
 import { login, logout } from '../../services/firebase'
+import Recipes from '../Recipes/Recipes'
 import styles from './Header.module.css';
 
 function Header(props) {
@@ -17,6 +18,9 @@ function Header(props) {
                             alt={props.user.displayName} 
                             style={{height: '2.5rem', borderRadius: '42%'}}/>
                         </li>
+
+                        <li className={styles.navLink}
+                        onClick={Recipes}>Inspiration</li>
                         <li 
                         className={styles.navLink}
                         onClick={logout}>

@@ -4,6 +4,7 @@ import { createItem, fetchListItems, updateList, deleteListItem } from './servic
 import './App.css';
 
 import Header from './components/Header/Header'
+import Recipes from './components/Recipes/Recipes'
 
 export default function App() {
   const [shoppingListState, setShoppingListState] = useState({
@@ -20,6 +21,11 @@ export default function App() {
     user: null,
   })
 
+  const [recipeState, setRecipeState] = useState({
+    cuisine: null,
+    includeIngredients: null,
+    results: [],
+  });
 
   useEffect(function() {
     async function getAppData() {
@@ -32,7 +38,12 @@ export default function App() {
         ...prevShoppingListState,
         listItems
       }));
+
+      const data = await fetch('https://api.spoonacular.com/recipes/information?apiKey=bee476ec188041048efea73c25ecc2cb').then(res => res.json());
+      setRecipeState(data);
+      console.log(data);
     }
+    
     getAppData();
 
     const unsubscribe = auth.onAuthStateChanged(user => setUserState({ user }));
@@ -135,6 +146,10 @@ export default function App() {
       )) :
       <article>No ShoppingList to Show - Login to get Started</article>
         }
+        {
+        recipeState.results.map ((recipe, idx) =>(
+          < Recipes key={idx} recipe={recipe} />
+        ))}
       <hr />
       <form onSubmit={handleSubmit}>
         <label>
