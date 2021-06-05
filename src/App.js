@@ -5,6 +5,7 @@ import './App.css';
 
 import Header from './components/Header/Header'
 import Recipes from './components/Recipes/Recipes'
+import Footer from './components/Footer/Footer';
 
 export default function App() {
   const [shoppingListState, setShoppingListState] = useState({
@@ -39,9 +40,13 @@ export default function App() {
         listItems
       }));
 
-      const data = await fetch('https://api.spoonacular.com/recipes/information?apiKey=bee476ec188041048efea73c25ecc2cb').then(res => res.json());
-      setRecipeState(data);
-      console.log(data);
+      // const data = await fetch(`https://api.spoonacular.com/mealplanner/generate?apiKey=bee476ec188041048efea73c25ecc2cb`
+      // )
+      // .then(res => res.json())
+      //  setRecipeState(data)
+      
+      
+      
     }
     
     getAppData();
@@ -146,8 +151,7 @@ export default function App() {
       )) :
       <article>No ShoppingList to Show - Login to get Started</article>
         }
-        {
-        recipeState.results.map ((recipe, idx) =>(
+        {recipeState.results.map ((recipe, idx) =>(
           < Recipes key={idx} recipe={recipe} />
         ))}
       <hr />
@@ -183,6 +187,7 @@ export default function App() {
       </form>
       <br />
     </section>
+    < Footer />
     </>
   );
 }
