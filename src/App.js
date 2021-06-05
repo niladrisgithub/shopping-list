@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { auth } from './services/firebase';
-import { createItem, fetchListItems, updateList, deleteListItem } from './services/shoppingList-service'
+import { createItem, fetchListItems, updateList, deleteListItem } from './services/shoppingList-service';
 import './App.css';
-
-import Header from './components/Header/Header'
-import Recipes from './components/Recipes/Recipes'
+import { Route, Switch } from 'react-router-dom';
+import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import Recipes from './pages/Recipes/Recipes';
+
 
 export default function App() {
   const [shoppingListState, setShoppingListState] = useState({
@@ -91,6 +92,8 @@ export default function App() {
             unit: 'Box'
           }
         });
+
+
       } catch (error){
         console.log(error);
       }
@@ -115,7 +118,8 @@ export default function App() {
       newListItem: itemToEdit,
       editMode: true
     }));
-  }
+  } 
+  
 
   async function handleDelete(id) {
     if(!userState.user) return;
@@ -151,9 +155,8 @@ export default function App() {
       )) :
       <article>No ShoppingList to Show - Login to get Started</article>
         }
-        {recipeState.results.map ((recipe, idx) =>(
-          < Recipes key={idx} recipe={recipe} />
-        ))}
+     
+       
       <hr />
       <form onSubmit={handleSubmit}>
         <label>
@@ -188,6 +191,7 @@ export default function App() {
       <br />
     </section>
     < Footer />
+ 
     </>
   );
 }
