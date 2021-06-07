@@ -23,11 +23,7 @@ export default function App() {
     user: null,
   })
 
-  const [recipeState, setRecipeState] = useState({
-    cuisine: null,
-    includeIngredients: null,
-    results: [],
-  });
+ 
 
   useEffect(function() {
     async function getAppData() {
