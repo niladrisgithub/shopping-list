@@ -149,7 +149,7 @@ export default function App() {
           >{'🚮🚮🚮'}</div>
         </article>
       )) :
-      <article>There's Nothing to See Here! - Log in to get Started</article>
+      <article>There's Nothing to See Here! - Log In to See What to Purchase!</article>
         }
      
        
@@ -162,7 +162,7 @@ export default function App() {
         <label>
           <span>QUANTITY</span>
           <select name="quantity" value={shoppingListState.newListItem.quantity} onChange={handleChange}>
-            <option value=" " disabled>Choose the Quantity</option>
+            {/* <option value=" " disabled>Choose the Quantity</option> */}
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -173,7 +173,7 @@ export default function App() {
         <label>
           <span>UNIT</span>
           <select name="unit" value={shoppingListState.newListItem.unit} onChange={handleChange}>
-            <option value=" " disabled>Choose the Unit</option>
+            {/* <option value=" " disabled>Choose the Unit</option> */}
             <option value="Box">Box</option>
             <option value="Bag">Bag</option>
             <option value="Jar">Jar</option>
