@@ -11,7 +11,7 @@ function Header(props) {
                         props.user ?
                         <>
                         
-                        <li>Welcome, {props.user.displayName}</li>
+                        <li>Here's your list, {props.user.displayName}</li>
                         <li>
                             <img src={props.user.photoURL} 
                             alt={props.user.displayName} 

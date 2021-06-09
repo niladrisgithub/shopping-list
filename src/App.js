@@ -99,11 +99,11 @@ export default function App() {
   function handleChange(evt) {
     setShoppingListState(prevShoppingListState => ({
       ...prevShoppingListState,
-      newListItem : {
+      newListItem: {
         ...prevShoppingListState.newListItem,
         [evt.target.name]: evt.target.value
       }
-    }))
+    }));
   }
 
   function handleEdit(id) {
@@ -127,7 +127,7 @@ export default function App() {
       }));
   } catch (error) {
     console.log(error)
-  }
+    }
   }
   
   return (
@@ -142,14 +142,14 @@ export default function App() {
           <div 
           className="controls"
           onClick={() => handleEdit(list._id)}
-          >{'✏️'}</div>
+          >{'✏️✏️✏️'}</div>
             <div 
           className="controls"
           onClick={() => handleDelete(list._id)}
-          >{'🚮'}</div>
+          >{'🚮🚮🚮'}</div>
         </article>
       )) :
-      <article>No ShoppingList to Show - Login to get Started</article>
+      <article>There's Nothing to See Here! - Log in to get Started</article>
         }
      
        
