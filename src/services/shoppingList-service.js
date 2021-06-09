@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3001/api/shoppingList'
+const BASE_URL = 'https://nils-shopping-list-backend.herokuapp.com/api/shoppingList'
 
 function fetchListItems(uid) {
     return fetch(`${BASE_URL}?uid=${uid}`).then(res => res.json());
