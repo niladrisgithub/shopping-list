@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { auth } from './services/firebase';
 import { createItem, fetchListItems, updateList, deleteListItem } from './services/shoppingList-service';
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
+// import { Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import Recipes from './pages/Recipes/Recipes';
+// import Recipes from './pages/Recipes/Recipes';
 
 
 export default function App() {

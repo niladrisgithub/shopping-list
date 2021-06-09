@@ -15,7 +15,7 @@ function Header(props) {
                         <li>
                             <img src={props.user.photoURL} 
                             alt={props.user.displayName} 
-                            style={{height: '2.5rem', borderRadius: '42%'}}/>
+                            style={{height: '3rem', borderRadius: '40%'}}/>
                         </li>
 
                      
