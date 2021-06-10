@@ -11,8 +11,8 @@ function Header(props) {
                         props.user ?
                         <>
                         
-                        <li>Here's your list, {props.user.displayName}</li>
-                        <li>
+                        <li className={styles.hiddenMobile}>Here's your list, {props.user.displayName}</li>
+                        <li className={styles.hiddenMobile}>
                             <img src={props.user.photoURL} 
                             alt={props.user.displayName} 
                             style={{height: '3rem', borderRadius: '40%'}}/>

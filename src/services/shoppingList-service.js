@@ -24,6 +24,7 @@ function createItem(data, uid) {
     }).then(res => res.json());
 }
 
+
 function deleteListItem(listItemId, uid) {
     return fetch (`${BASE_URL}/${listItemId}?uid=${uid}`, {
         method: 'DELETE'

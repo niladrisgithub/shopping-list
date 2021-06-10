@@ -129,6 +129,8 @@ export default function App() {
     console.log(error)
     }
   }
+
+  
   
   return (
     <>
@@ -146,14 +148,15 @@ export default function App() {
             <div 
           className="controls"
           onClick={() => handleDelete(list._id)}
-          >{'🚮'}</div>
+          > {'🛒'}
+          </div>
         </article>
       )) :
       <article>There's Nothing to See Here! - Log In to See What to Purchase!</article>
         }
      
        
-      <hr />
+      <br/>
       <form onSubmit={handleSubmit}>
         <label>
           <span>ITEM</span>
