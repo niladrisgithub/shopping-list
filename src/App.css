@@ -84,4 +84,12 @@ button:hover {
    min-height: 1vh;
    min-width: 1vw;
  }
+ label{
+   font-size: 12px;
+ }
+ input,
+select {
+  width: 50%;
+  font-size: .8rem;
+}
 }
