@@ -18,7 +18,11 @@ Do you need a list when you go shopping? Do you have a difficult time keeping tr
 
 ## Screenshots
 #### Here is the wireframe.
-![wireframe]( ) 
+![wireframe](./public/WireFrames/Grocery_List.png) 
+
+![wireframe](./public/WireFrames/Inspiration_Page.png)
+
+![ERD](./public/WireFrames/ERD.png)
 
 #### Here are some screenshots of the web app.
 
