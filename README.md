@@ -12,7 +12,7 @@ Do you need a list when you go shopping? Do you have a difficult time keeping tr
 - Heroku
 
 ## Getting Started
-[Click here]( ) 
+[Click here](https://nils-shopping-list.netlify.app/) 
 
 
 
@@ -26,14 +26,9 @@ Do you need a list when you go shopping? Do you have a difficult time keeping tr
 
 #### Here are some screenshots of the web app.
 
-![index]( )
+![LoggedOut](./public/ScreenShots/Logged_Out.png)
 
-
-![gallery]( )
-
-
-![request]( )
-
+![LoggedIn](./public/ScreenShots/Logged_In.png)
 
 
 ## Future Enhancements
