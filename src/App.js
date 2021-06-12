@@ -143,6 +143,7 @@ export default function App() {
     < Header user={userState.user} />
      
     <section>
+      <br />
       {userState.user ? shoppingListState.listItems.map((list, idx) => (
         <article key={idx}>
           <div>{list.item}</div> 
@@ -195,7 +196,7 @@ export default function App() {
         </label>
         <button>{shoppingListState.editMode ? 'EDIT ITEM' : 'ADD ITEM'} </button>
       </form>
-
+        <br />
       <div className="recipes">
         { recipeState.recipes.map ((recipe, idx) => (
         < Recipes key={idx} recipe={recipe} />

@@ -32,3 +32,6 @@ Do you need a list when you go shopping? Do you have a difficult time keeping tr
 
 
 ## Future Enhancements
+- Change the styling of a list item added to the cart seperate from deleting the item
+- Include images of the inspirational recipes at the bottom
+- A way to click ingredients listed, and have them added to the shopping list

@@ -17,6 +17,7 @@ section {
 section > article {
   display: flex;
   flex-grow: 1;
+  align-items: center;
   justify-content: space-evenly;
   min-width: 18.25rem;
   margin: 0.4rem;
@@ -63,6 +64,7 @@ button {
 button:hover {
   color: white;
   background-color: rgb(0, 46, 92);
+  cursor: pointer;
 }
 
 .controls {
