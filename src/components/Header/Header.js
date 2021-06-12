@@ -1,6 +1,6 @@
 import { login, logout } from '../../services/firebase'
 import styles from './Header.module.css';
-
+ 
 function Header(props) {
     return (
         <header className={styles.header}>

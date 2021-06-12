@@ -17,7 +17,7 @@ Do you need a list when you go shopping? Do you have a difficult time keeping tr
 
 
 ## Screenshots
-#### Here is the wireframe.
+#### Here is the wireframes and ERD.
 ![wireframe](./public/WireFrames/Grocery_List.png) 
 
 ![wireframe](./public/WireFrames/Inspiration_Page.png)

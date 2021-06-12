@@ -5,7 +5,7 @@ import './App.css';
 // import { Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-// import Recipes from './pages/Recipes/Recipes';
+import Recipes from './components/Recipes/Recipes';
 
 
 export default function App() {
@@ -23,6 +23,14 @@ export default function App() {
     user: null,
   })
 
+  const [ recipeState, setRecipeState ] = useState({
+    recipes: [{
+      title: '',
+      extendedIngredients: [{name: ''}]
+    }],
+    },
+
+  )
  
 
   useEffect(function() {
@@ -37,15 +45,11 @@ export default function App() {
         listItems
       }));
 
-      // const data = await fetch(`https://api.spoonacular.com/mealplanner/generate?apiKey=bee476ec188041048efea73c25ecc2cb`
-      // )
-      // .then(res => res.json())
-      //  setRecipeState(data)
-      
-      
+      const data = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=bee476ec188041048efea73c25ecc2cb`
+      ).then(res => res.json())
+       setRecipeState(data);
       
     }
-    
     getAppData();
 
     const unsubscribe = auth.onAuthStateChanged(user => setUserState({ user }));
@@ -135,6 +139,7 @@ export default function App() {
   return (
     <>
     < Header user={userState.user} />
+     
     <section>
       {userState.user ? shoppingListState.listItems.map((list, idx) => (
         <article key={idx}>
@@ -187,6 +192,14 @@ export default function App() {
         </label>
         <button>{shoppingListState.editMode ? 'EDIT ITEM' : 'ADD ITEM'} </button>
       </form>
+
+      <div className="recipes">
+        {recipeState.recipes.map ((recipe, idx) => (
+        < Recipes key={idx} recipe={recipe} />
+      ))
+      }
+
+    </div>
       <br />
     </section>
     < Footer />
