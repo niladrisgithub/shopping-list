@@ -1,4 +1,5 @@
 import styles from './Recipes.module.css'
+import Ingredient from '../Ingredient/Ingredient'
 
 function Recipes({recipe}) {
     return (
@@ -7,8 +8,13 @@ function Recipes({recipe}) {
                 <h3>Inspiration</h3>
                 <p>Recipe: {recipe.title}</p>
                 
-                <p>Ingredients: {recipe.extendedIngredients.originalName}</p>
-               
+            {recipe.extendedIngredients.map ((ingredient, idx) => (
+          < Ingredient key={idx} ingredient={ingredient} />
+        ))}
+
+            <button >{recipe.spoonacularSourceUrl}</button>
+                
+            
              </section>
         </div>
     )

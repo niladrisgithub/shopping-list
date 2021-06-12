@@ -6,6 +6,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Recipes from './components/Recipes/Recipes';
+// import Ingredient from './components/Ingredient/Ingredient'
 
 
 export default function App() {
@@ -136,6 +137,7 @@ export default function App() {
 
   
   
+  
   return (
     <>
     < Header user={userState.user} />
@@ -182,24 +184,25 @@ export default function App() {
           <span>UNIT</span>
           <select name="unit" value={shoppingListState.newListItem.unit} onChange={handleChange}>
             <option value=" " disabled>Choose the Unit</option>
-            <option value="Boxes">Boxes</option>
-            <option value="Bags">Bags</option>
-            <option value="Jars">Jars</option>
-            <option value="Numbers">Numbers</option>
-            <option value="Ounces">Ounces</option>
-            <option value="Pounds">Pounds</option>
+            <option value="Box(es)">Box(es)</option>
+            <option value="Bag(s)">Bag(s)</option>
+            <option value="Jar(s)">Jar(s)</option>
+            <option value="Bottle(s)">Bottle(s)</option>
+            <option value="Number(s)">Number(s)</option>
+            <option value="Ounce(s)">Ounce(s)</option>
+            <option value="Pound(s)">Pound(s)</option>
           </select>
         </label>
         <button>{shoppingListState.editMode ? 'EDIT ITEM' : 'ADD ITEM'} </button>
       </form>
 
       <div className="recipes">
-        {recipeState.recipes.map ((recipe, idx) => (
+        { recipeState.recipes.map ((recipe, idx) => (
         < Recipes key={idx} recipe={recipe} />
       ))
-      }
-
-    </div>
+        }
+   </div>
+        
       <br />
     </section>
     < Footer />
