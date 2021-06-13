@@ -201,7 +201,7 @@ export default function App() {
         { userState.user ? recipeState.recipes.map ((recipe, idx) => (
         < Recipes key={idx} recipe={recipe} />
       )):
-      <article>Log In to see an Inspirational Recipe</article>
+      <article>Log In to 👀 an Inspirational Recipe</article>
         }
    </div>
         
