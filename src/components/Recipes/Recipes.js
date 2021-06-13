@@ -6,6 +6,7 @@ function Recipes({recipe}) {
         <div className={styles.recipe}>
              <section>
                 <h3>Inspiration</h3>
+                <img className={styles.img} src={recipe.image} alt={recipe.title} />
                 <p>Recipe: {recipe.title}</p>
                 
             {recipe.extendedIngredients.map ((ingredient, idx) => (

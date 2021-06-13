@@ -194,13 +194,14 @@ export default function App() {
             <option value="Pound(s)">Pound(s)</option>
           </select>
         </label>
-        <button>{shoppingListState.editMode ? 'EDIT ITEM' : 'ADD ITEM'} </button>
+        <button disabled={!userState.user}>{shoppingListState.editMode ? 'EDIT ITEM' : 'ADD ITEM'} </button>
       </form>
         <br />
       <div className="recipes">
-        { recipeState.recipes.map ((recipe, idx) => (
+        { userState.user ? recipeState.recipes.map ((recipe, idx) => (
         < Recipes key={idx} recipe={recipe} />
-      ))
+      )):
+      <article>Log In to see an Inspirational Recipe</article>
         }
    </div>
         
