@@ -13,7 +13,7 @@ function Recipes({recipe}) {
           < Ingredient key={idx} ingredient={ingredient} />
         ))}
 
-            <a href={recipe.spoonacularSourceUrl}>{recipe.spoonacularSourceUrl}</a>
+            <a href={recipe.spoonacularSourceUrl}>Click Here for More Detailed Recipe</a>
                 
             
              </section>
