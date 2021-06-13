@@ -10,11 +10,13 @@ Do you need a list when you go shopping? Do you have a difficult time keeping tr
 - CSS3
 - JavaScript
 - Heroku
+- Spoonacular API
 
 ## Getting Started
 [Click here](https://nils-shopping-list.netlify.app/) 
 
-
+#### Trello Board
+[Click here](https://trello.com/b/mu85xA7a/project-3-trello-board)
 
 ## Screenshots
 #### Here is the wireframes and ERD.
