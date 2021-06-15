@@ -37,3 +37,6 @@ Do you need a list when you go shopping? Do you have a difficult time keeping tr
 - Change the styling of a list item added to the cart seperate from deleting the item
 - A way to click ingredients listed, and have them added to the shopping list
 - A way for a user to customize colors and fonts for their personalization
+
+## Bugs
+Things should be running smoothly. If you bump into any errors, send me a note niladri.sinha89@gmail.com
