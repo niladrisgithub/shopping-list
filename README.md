@@ -1,6 +1,7 @@
 # 🛒ShoppingList
 
 Do you need a list when you go shopping? Do you have a difficult time keeping track of items that you already put in your cart? Or perhaps you tend to lose all the pens you bring with you to cross items off of your list. This app will help!
+This is the front-end clientside of the app.
 
 ## Technologies
 - MongoDB/Mongoose
